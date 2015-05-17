@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -49,7 +54,7 @@ plot<-qplot(date, weight=activity$steps, data=activity, geom="histogram")
 print(plot)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 Mean and Median number of steps per day:
 
@@ -83,7 +88,7 @@ plot<-ggplot(data=avg_steps,aes(x=interval,y=steps)) +
 print(plot)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 The 5-minute interval which contains the maximum number of steps across all the days in the dataset is:
 
@@ -125,7 +130,7 @@ Histogram of the new dataset, which has the NAs replaced with the 5-minute means
 qplot(date, weight=fixed$steps, data=fixed, geom="histogram")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 Calculate and report the mean and media values. We can see that the values differ from the initial calculation, and have higher value. It is also observed in the graph above. Most days have an increased number of mean of steps, since the NAs have been replaced by the 5-minute interval mean.
 
@@ -163,4 +168,4 @@ Plot the 5-minute average of steps, by weekday/weekend.
 xyplot(steps ~ interval | day, aggregate(steps ~ interval + day, fixed, FUN = mean), layout = c(1, 2), type = "l", group=day)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
